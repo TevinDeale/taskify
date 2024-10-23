@@ -1,0 +1,17 @@
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/TaskifyApplication.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/controller/TaskController.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/dto/TaskDto.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/enums/Status.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/exception/EmptyListException.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/exception/GeneralTaskifyException.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/exception/GlobalExceptionHandler.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/exception/InvalidDateRangeException.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/exception/InvalidDueDateException.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/exception/InvalidStatusException.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/exception/TaskNotFoundException.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/model/Task.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/repository/TaskRepository.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/service/TaskService.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/service/TaskServiceImpl.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/swagger/SwaggerConfig.java
+/Users/tevin/Documents/Projects/Java/taskify/src/main/java/dev/fiinn/taskify/util/DateUtil.java

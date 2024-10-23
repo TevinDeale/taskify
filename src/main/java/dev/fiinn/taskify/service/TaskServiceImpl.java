@@ -191,6 +191,10 @@ public class TaskServiceImpl implements TaskService {
             throw new InvalidDueDateException();
         }
 
+        if (foundTask.getStatus().equals(Status.COMPLETED)) {
+            foundTask.setCompletedAt(null);
+        }
+
         foundTask.setTitle(title);
         foundTask.setDescription(description);
         foundTask.setStatus(checkStatus);

@@ -9,28 +9,33 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.HandlerMapping;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-@RestController("/api/tasks")
+@RestController
+@RequestMapping("/api/tasks")
 public class TaskController {
 
     private final TaskService taskService;
 
-    public TaskController(TaskService taskService, HandlerMapping resourceHandlerMapping) {
+    public TaskController(TaskService taskService) {
         this.taskService = taskService;
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Task> createTask(@RequestBody TaskDto taskDto) throws InvalidStatusException, InvalidDueDateException {
-        Task newTask = taskService.createTask(
-                taskDto.getTitle(),
-                taskDto.getDescription(),
-                taskDto.getStatus(),
-                taskDto.getDueDate()
-        );
+    public ResponseEntity<List<Task>> createTask(@RequestBody List<TaskDto> taskDtos) throws InvalidStatusException, InvalidDueDateException {
+        List<Task> newTasks = new ArrayList<>();
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(newTask);
+        for (TaskDto taskDto : taskDtos) {
+            newTasks.add(taskService.createTask(
+                            taskDto.getTitle(),
+                            taskDto.getDescription(),
+                            taskDto.getStatus(),
+                            taskDto.getDueDate()
+            ));
+        };
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(newTasks);
     }
 
     @GetMapping
@@ -50,7 +55,7 @@ public class TaskController {
                 .body(taskService.getTaskById(id));
     }
 
-    @GetMapping("/{status}")
+    @GetMapping("/status/{status}")
     public ResponseEntity<List<Task>> getTaskByStatus(@PathVariable String status) throws InvalidStatusException {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(taskService.getTaskByStatus(status));

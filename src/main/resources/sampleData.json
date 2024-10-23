@@ -1,0 +1,128 @@
+[
+  {
+    "title": "Get soda",
+    "description": "Go to HEB and buy Diet Pepsi",
+    "status": "IN_PROGRESS",
+    "dueDate": "10/25/2024"
+  },
+  {
+    "title": "Complete homework",
+    "description": "Finish math assignments for tomorrow",
+    "status": "PENDING",
+    "dueDate": "10/24/2024"
+  },
+  {
+    "title": "Buy groceries",
+    "description": "Purchase ingredients for dinner",
+    "status": "PENDING",
+    "dueDate": "10/26/2024"
+  },
+  {
+    "title": "Plan trip",
+    "description": "Organize itinerary for the weekend trip",
+    "status": "IN_PROGRESS",
+    "dueDate": "10/30/2024"
+  },
+  {
+    "title": "Schedule doctor appointment",
+    "description": "Call the clinic to schedule an appointment",
+    "status": "PENDING",
+    "dueDate": "10/27/2024"
+  },
+  {
+    "title": "Read a book",
+    "description": "Start reading 'The Catcher in the Rye'",
+    "status": "PENDING",
+    "dueDate": "11/01/2024"
+  },
+  {
+    "title": "Finish project report",
+    "description": "Complete the final report for the project",
+    "status": "IN_PROGRESS",
+    "dueDate": "10/31/2024"
+  },
+  {
+    "title": "Water the plants",
+    "description": "Make sure all houseplants are watered",
+    "status": "PENDING",
+    "dueDate": "10/25/2024"
+  },
+  {
+    "title": "Clean the house",
+    "description": "Vacuum and dust all rooms",
+    "status": "PENDING",
+    "dueDate": "10/28/2024"
+  },
+  {
+    "title": "Workout",
+    "description": "Go to the gym for a workout session",
+    "status": "IN_PROGRESS",
+    "dueDate": "10/25/2024"
+  },
+  {
+    "title": "Prepare presentation",
+    "description": "Create slides for the upcoming presentation",
+    "status": "PENDING",
+    "dueDate": "10/29/2024"
+  },
+  {
+    "title": "Grocery shopping",
+    "description": "Get items for the week ahead",
+    "status": "PENDING",
+    "dueDate": "10/26/2024"
+  },
+  {
+    "title": "Visit parents",
+    "description": "Spend the weekend visiting family",
+    "status": "PENDING",
+    "dueDate": "10/28/2024"
+  },
+  {
+    "title": "Organize workspace",
+    "description": "Declutter and tidy up the desk",
+    "status": "IN_PROGRESS",
+    "dueDate": "10/30/2024"
+  },
+  {
+    "title": "Pay bills",
+    "description": "Ensure all monthly bills are paid",
+    "status": "PENDING",
+    "dueDate": "10/31/2024"
+  },
+  {
+    "title": "Attend conference",
+    "description": "Participate in the annual tech conference",
+    "status": "PENDING",
+    "dueDate": "11/05/2024"
+  },
+  {
+    "title": "Cook dinner",
+    "description": "Prepare a healthy dinner for the family",
+    "status": "PENDING",
+    "dueDate": "10/25/2024"
+  },
+  {
+    "title": "Do laundry",
+    "description": "Wash and fold the laundry",
+    "status": "PENDING",
+    "dueDate": "10/26/2024"
+  },
+  {
+    "title": "Send emails",
+    "description": "Reply to outstanding emails",
+    "status": "IN_PROGRESS",
+    "dueDate": "10/24/2024"
+  },
+  {
+    "title": "Update resume",
+    "description": "Revise and update the CV",
+    "status": "PENDING",
+    "dueDate": "11/02/2024"
+  },
+  {
+    "title": "Plan vacation",
+    "description": "Research and book flights for the vacation",
+    "status": "PENDING",
+    "dueDate": "11/10/2024"
+  }
+]
