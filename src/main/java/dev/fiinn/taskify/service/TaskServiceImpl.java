@@ -33,32 +33,98 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public List<Task> getTaskByStatus(Status status) {
-        return taskRepository.findAllByStatus(status);
+    public List<Task> getTaskByStatus(String status) throws InvalidStatusException {
+
+        Status checkStatus = Status.getStatus(status);
+
+        if (checkStatus.equals(Status.NOT_FOUND)) {
+            throw new InvalidStatusException("Invalid status in path, please use on of the following:\nPENDING\nIN_PROGRESS\nCOMPLETED");
+        }
+
+        return taskRepository.findAllByStatus(checkStatus);
     }
 
     @Override
-    public List<Task> getTasksDueDateBetween(LocalDate startDate, LocalDate endDate) throws InvalidDateRangeException {
-        if (!DateUtil.validDateRange(startDate, endDate)) {
+    public List<Task> getTasksDueDateBetween(String startDate, String endDate) throws InvalidDateRangeException {
+        LocalDate startLocal = DateUtil.parseString(startDate);
+        LocalDate endLocal = DateUtil.parseString(endDate);
+
+        if (!DateUtil.validDateRange(startLocal, endLocal)) {
             throw new InvalidDateRangeException();
         }
-        return taskRepository.findAllByDueDateBetween(startDate, endDate);
+        return taskRepository.findAllByDueDateBetween(startLocal, endLocal);
     }
 
     @Override
-    public List<Task> getTasksCreatedBetween(LocalDate startDate, LocalDate endDate) throws InvalidDateRangeException {
-        if (!DateUtil.validDateRange(startDate, endDate)) {
+    public List<Task> getTasksCreatedBetween(String startDate, String endDate) throws InvalidDateRangeException {
+
+        LocalDate startLocal = DateUtil.parseString(startDate);
+        LocalDate endLocal = DateUtil.parseString(endDate);
+
+        if (!DateUtil.validDateRange(startLocal, endLocal)) {
             throw new InvalidDateRangeException();
         }
-        return taskRepository.findAllByCreatedAtBetween(startDate, endDate);
+
+        return taskRepository.findAllByCreatedAtBetween(startLocal, endLocal);
     }
 
     @Override
-    public List<Task> getTasksUpdatedBetween(LocalDate startDate, LocalDate endDate) throws InvalidDateRangeException {
-        if (!DateUtil.validDateRange(startDate, endDate)) {
+    public List<Task> getTaskCompletedBetween(String startDate, String endDate) throws InvalidDateRangeException {
+
+        LocalDate startLocal = DateUtil.parseString(startDate);
+        LocalDate endLocal = DateUtil.parseString(endDate);
+
+        if (!DateUtil.validDateRange(startLocal, endLocal)) {
             throw new InvalidDateRangeException();
         }
-        return taskRepository.findAllByUpdatedAtBetween(startDate, endDate);
+
+        return taskRepository.findAllByCompletedAtBetween(startLocal, endLocal);
+    }
+
+    @Override
+    public List<Task> getTasksUpdatedBetween(String startDate, String endDate) throws InvalidDateRangeException {
+
+        LocalDate startLocal = DateUtil.parseString(startDate);
+        LocalDate endLocal = DateUtil.parseString(endDate);
+
+        if (!DateUtil.validDateRange(startLocal, endLocal)) {
+            throw new InvalidDateRangeException();
+        }
+
+        return taskRepository.findAllByUpdatedAtBetween(startLocal, endLocal);
+    }
+
+    @Override
+    public List<Task> getTaskDueToday() {
+        LocalDate now = DateUtil.now();
+        return taskRepository.findAllByDueDateBetween(now, now);
+    }
+
+    @Override
+    public List<Task> getTasksCreatedToday() {
+        LocalDate now = DateUtil.now();
+        return taskRepository.findAllByCreatedAtBetween(now, now);
+    }
+
+    @Override
+    public List<Task> getTasksCompletedToday() {
+        LocalDate now = DateUtil.now();
+        return taskRepository.findAllByCompletedAtBetween(now, now);
+    }
+
+    @Override
+    public List<Task> getTasksUpdatedToday() {
+        LocalDate now = DateUtil.now();
+        return taskRepository.findAllByUpdatedAtBetween(now, now);
+    }
+
+    @Override
+    public List<Task> searchTasksByTitleOrDescription(String searchTitle, String searchDescription) {
+        if (searchTitle.trim().isBlank() || searchDescription.trim().isBlank()) {
+            throw new IllegalArgumentException("Search term cannot be blank.");
+        }
+
+        return taskRepository.findAllByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(searchTitle, searchDescription);
     }
 
     @Transactional

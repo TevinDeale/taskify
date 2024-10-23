@@ -14,5 +14,6 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     List<Task> findAllByCreatedAtBetween(LocalDate startDate, LocalDate endDate);
     List<Task> findAllByUpdatedAtBetween(LocalDate startDate, LocalDate endDate);
     List<Task> findAllByDueDateBetween(LocalDate startDate, LocalDate endDate);
-
+    List<Task> findAllByCompletedAtBetween(LocalDate startDate, LocalDate endDate);
+    List<Task> findAllByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(String searchTitle, String searchDescription);
 }

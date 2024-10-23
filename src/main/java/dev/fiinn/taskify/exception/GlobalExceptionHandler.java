@@ -45,4 +45,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException err) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err.getMessage());
     }
+
+    @ExceptionHandler(EmptyListException.class)
+    public ResponseEntity<String> handleEmptyListException(EmptyListException err) {
+        return ResponseEntity.status(HttpStatus.OK).body(err.getMessage());
+    }
 }
