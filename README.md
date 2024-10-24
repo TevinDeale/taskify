@@ -61,6 +61,18 @@ Endpoint: POST /api/tasks/create
 
 #### Request Body:
 ```json
+{
+   "title": "Get soda",
+   "description": "Go to HEB and buy diet Pepsi",
+   "status": "PENDING",
+   "dueDate": "10/25/2024"
+}
+```
+
+Endpoint: POST /api/tasks/create/multiple
+
+#### Request Body:
+```json
 [
   {
     "title": "Get soda",
