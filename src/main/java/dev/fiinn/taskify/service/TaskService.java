@@ -1,6 +1,5 @@
 package dev.fiinn.taskify.service;
 
-import dev.fiinn.taskify.enums.Status;
 import dev.fiinn.taskify.exception.*;
 import dev.fiinn.taskify.model.Task;
 
@@ -23,5 +22,4 @@ public interface TaskService {
     List<Task> getTasksCreatedToday();
     List<Task> getTasksCompletedToday();
     List<Task> getTasksUpdatedToday();
-
 }

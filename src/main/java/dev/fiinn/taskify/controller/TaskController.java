@@ -22,20 +22,40 @@ public class TaskController {
         this.taskService = taskService;
     }
 
-    @PostMapping("/create")
+    @PostMapping("/create/multiple")
     public ResponseEntity<List<Task>> createTask(@RequestBody List<TaskDto> taskDtos) throws InvalidStatusException, InvalidDueDateException {
         List<Task> newTasks = new ArrayList<>();
 
         for (TaskDto taskDto : taskDtos) {
-            newTasks.add(taskService.createTask(
-                            taskDto.getTitle(),
-                            taskDto.getDescription(),
-                            taskDto.getStatus(),
-                            taskDto.getDueDate()
-            ));
+
+            try {
+                Task newTask = taskService.createTask(
+                        taskDto.getTitle(),
+                        taskDto.getDescription(),
+                        taskDto.getStatus(),
+                        taskDto.getDueDate()
+                );
+
+                newTasks.add(newTask);
+            } catch (Exception err) {
+                System.out.println("There was error adding task with title: " + taskDto.getTitle() + "\nError: " + err.getMessage());
+            }
         };
 
         return ResponseEntity.status(HttpStatus.CREATED).body(newTasks);
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<Task> createTask(@RequestBody TaskDto taskDto) throws InvalidStatusException, InvalidDueDateException {
+
+        Task newTask = taskService.createTask(
+                taskDto.getTitle(),
+                taskDto.getDescription(),
+                taskDto.getStatus(),
+                taskDto.getDueDate()
+        );
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(newTask);
     }
 
     @GetMapping

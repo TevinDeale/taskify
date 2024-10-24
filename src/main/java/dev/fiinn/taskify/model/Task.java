@@ -1,6 +1,8 @@
 package dev.fiinn.taskify.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import dev.fiinn.taskify.enums.Status;
+import dev.fiinn.taskify.util.LocalDateDeserializer;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,9 +19,17 @@ public class Task {
     private String title;
     private String description;
     private Status status;
+
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate dueDate;
+
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate createdAt;
+
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate updatedAt;
+
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate completedAt;
 
     public Task(String title, String description, Status status, LocalDate dueDate) {
