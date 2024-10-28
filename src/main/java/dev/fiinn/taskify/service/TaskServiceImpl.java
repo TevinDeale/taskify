@@ -215,6 +215,7 @@ public class TaskServiceImpl implements TaskService {
 
         foundTask.setStatus(Status.COMPLETED);
         foundTask.setCompletedAt(DateUtil.now());
+        foundTask.setUpdatedAt(DateUtil.now());
 
         return taskRepository.save(foundTask);
     }
